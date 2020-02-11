@@ -6,4 +6,4 @@ To get started:
 
 Login to GitHub
 Clone this repo: by clicking the clone button
-If your using git throught your terminal use: git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY
+If your using git through your terminal use: git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY
