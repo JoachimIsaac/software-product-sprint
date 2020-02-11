@@ -45,4 +45,7 @@ To get started:
 
 Login to GitHub
 Clone this repo: by clicking the clone button...
-If you're using git through your terminal use: git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY
+
+If you're using git through your terminal use: 
+
+git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY
