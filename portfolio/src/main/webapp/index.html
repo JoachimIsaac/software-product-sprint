@@ -3,16 +3,119 @@
   <head>
     <meta charset="UTF-8">
     <title>My Portfolio</title>
+      <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+      integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay"
+      crossorigin="anonymous"
+      />
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
   </head>
   <body>
     <div id="content">
-      <h1>My Portfolio</h1>
-      <p>This is my portfolio.</p>
-      <p>Click here to get a random message:</p>
-      <button onclick="addRandomGreeting()">Hello</button>
-      <div id="greeting-container"></div>
+        
+      <header>
+          <div class="header-menu">
+              <a href="#">Skills</a>
+              <a href="#">Portfolio</a>
+              <a href="#">Education</a>
+              <a href="#">Videos</a>
+          </div>
+      </header>
+      <h1 class="title-header">Joachim Isaac's Portfolio!</h1>
+      <div class="img-container"><img src="/images/joachim_isaac.png"></div>
+      
+      <p class="introduction">
+        My name is Joachim Isaac, I am a Software engineer by trade, an avid amateur boxer, weightlifter and stock trader.
+        I am very passionate about technology - not a specific framework or language.
+        I'm interested in web developement and artificial intellegence to create a cool web applications, that make
+        people's lives easier.
+      </p>
+   
+     
+      <p class="indicator">Click Here to find out one of my interests</p>
+      <div class="button-container"><button onclick="addRandomGreeting()">Click</button></div>
+      <div id="facts-container"></div>
     </div>
+
+    <section id="projects"> </section>
+    <section id="social_media">
+        <a href="https://www.linkedin.com/in/joachim-isaac-99701a149/"><i class="fab fa-linkedin"></i></a>
+        <a href="https://github.com/JoachimIsaac"><i class="fab fa-github-square"></i></a>
+        <a href="https://www.youtube.com/channel/UC2wfC0JXXWfJ13Fk0Y_CNJw?view_as=subscriber"><i class="fab fa-youtube-square"></i></a> 
+    </section>
+    <section id="about_me"></section> 
+    <section id="cs_videos"></section>
+    <section id="blog_post">
+        <h1>The Best Way to learn the Syntax Of Your Next Programming language!</h1>
+        <p>
+        Everyone knows that the journey of becoming a software developer is challenging, but a rewarding one. 
+        On my journey, it was apparent to me that the need for clarity and assurance was the main focus when beginning. 
+        When people enter the world of programming, it is like traveling into outer space. 
+        The stars and planets are all the technologies and concepts that we have to learn 
+        and our space suit is the resources we can make use of.
+        </p>
+        <p>
+        Usually, people who go into programming even people who are in school do not have a mentor. 
+        I think that having a mentor that is in the field and is passionate about his/her craft is 
+        the single biggest advantage one can have when learning programming. 
+        After a lot of struggling one may be just starting to grasp their first programming language. 
+        After becoming somewhat proficient in that language they may just decide that they would 
+        need to learn a new language to move on with a project.
+        </p>
+        <p>
+        This is especially the case when a front end developer realizes he needs to learn a backend language 
+        like PHP, Python, Ruby, C#, or even Java. Some may say that it isn't necessary to get into a 
+        completely different language since javascript can be used in the back end now because of node.js, 
+        but I beg to differ.
+        </p>
+        <p>
+        This is where the title of this post really shines. I am a Computer Science sophomore and in my school and I was taught
+        C++. I was well informed that C++ was a very relevant language when it came to memory optimization and speed,
+        but I knew I needed to learn how to build things. My goal from the start was becoming a web developer; 
+        I learned HTML and CSS which gave me the ability to create static websites.
+        </p>
+        <p>
+        I was a little intimidated by the fact I had to learn javascript sooner or later. 
+        This was because in the past I had heard many people complain and say that javascript was hard and very weird to learn. 
+        The thing is when it comes to learning new things, my approach is very unorthodox. 
+        I always look for ways to optimize the learning process in whatever I do, 
+        so that I can carry over that process in different situations.
+        </p>
+
+        <p>
+        My crazy idea was that I should learn algorithms and data structures using javascript so that I could learn it. 
+        The idea behind this was that it would get me to really dig deep into the language 
+        and learn the real nitty and gritty things. The reason I thought this was possible is that each language has different
+        nuances and cases and so by focusing on learning the different data structures and algorithms you have to 
+        dig deep to understand what you are doing. A perfect example of this is how built-in sort methods have 
+        different time complexities depending on what language they are used in. Specifically, in the case of javascript, 
+        the time complexity and algorithm used in its built-in sort method will change from browser to browser because 
+        different browsers use different sort methods.
+        </p>
+        <p>
+        The ability to contrast the differences in languages also gives you enough context to really learn the concept in 
+        another language. An example would be comparing a struct in C++ to an object in javascript or remembering 
+        the logic you used to create a linked list in C++ and converting into javascript by only taking into consideration 
+        the fact that javascript uses garbage collection to clear its memory and learning what the 'this.' the keyword means.
+        </p>
+        <p>
+        Ultimately learning algorithms and data structures while also doing programming questions will accelerate the 
+        process of learning the new language. The facts about javascript that I described above were all discovered 
+        while learning data structures and algorithms.
+        </p>
+        <p>
+        After learning data structures and algorithms, you could also try teaching them to your friends or 
+        people who are generally looking to learn them. I have been recently doing videos on solving programming problems 
+        on youtube using javascript. Explaining hard concepts to people reinforces your knowledge and challenges you to 
+        really understand the material.
+        </p>
+        <h2>Here is a Video of me answering a Programming Question with javascript</h2>
+        <!-- Iframe of video here. -->
+
+    </section>
+   
   </body>
 </html>
+
