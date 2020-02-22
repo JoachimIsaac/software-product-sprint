@@ -23,7 +23,7 @@ header .header-menu {
 
 
 header .header-menu a{
-    font-size: 1rem;
+    font-size: 1.5rem;
     text-transform: uppercase;
     text-decoration: none;
     color: black;
@@ -31,7 +31,7 @@ header .header-menu a{
 }
 
 header .header-menu a:hover{
-    font-size: 1.5rem;
+    font-size: 2rem;
     text-transform: uppercase;
     text-decoration: none;
     color: rgb(235, 69, 69);
@@ -104,9 +104,10 @@ img{
 .indicator{
     padding: 20px;
     font-family: sans-serif;
-    font-size: 1rem;
+    font-size: 1.3rem;
     text-align: center;
     margin: auto;
+    font-weight: bold;
 }
 
 
@@ -119,14 +120,22 @@ img{
 }
 
 .button-container button{
-    padding: 20px;
+    padding: 10px;
     color: black;
     border-radius: 20px;
     border: black;
     background: grey;
     padding-left: 40px;
     padding-right: 40px;
+    font-size: 1.5rem;
+    font-weight: bold;
     
+}
+
+.button-container button:hover{
+    padding: 15px;
+    padding-left: 40px;
+    padding-right: 40px;
 }
 
 #facts-container {
@@ -135,4 +144,99 @@ img{
   justify-content: center;
   align-content: center;
   padding: 40px;
+}
+
+#social_media{
+    display: flex;
+    padding-left: 35%;
+    padding-right: 35%;
+    justify-content: space-evenly;
+    height: 150px; 
+}
+
+
+
+#social_media a {
+    height: 100%;
+    text-decoration: none;
+    font-size: 6rem;
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    color: #8e8f91;
+    transition: all .10s ease-in-out; 
+
+}
+
+#social_media a  i.fab.fa-linkedin:hover{
+    font-size: 8rem;
+    color: #0073b1;
+
+}
+
+#social_media a  i.fab.fa-github-square:hover{
+    font-size: 8rem;
+    color: rgba(0, 0, 0, 0.89);
+
+}
+
+#social_media a  i.fab.fa-youtube-square:hover{
+    font-size: 8rem;
+    color: rgba(233, 17, 17, 0.685);
+}
+
+
+#blog_post{
+    padding-top: 50px;
+    font-family: sans-serif;
+    display: inline-block;
+    border-radius: 3px;
+    font-size: 1.2rem;
+    line-height: 1.7;
+    text-decoration: none;
+    margin-bottom: 1.8rem;
+    display: block;
+}
+
+#blog_post .container{
+    max-width: 1150px;
+    margin: 0 auto;
+
+}
+
+#blog_post .top-of-post{
+    text-align: center;
+}
+
+
+#blog_post .post{
+    display: inline-block;
+    border-radius: 3px;
+    font-size: 1.2rem;
+    line-height: 1.7;
+    text-decoration: none;
+    margin-bottom: 1.8rem;
+    color: rgba(0, 0, 0, 0.87);
+}
+
+
+
+#blog_post .video-section{
+    text-align: center;
+}
+
+#blog_post .video-section .video-container {
+
+}
+
+#blog_post .video-section .video-container iframe{
+    width: 560px;
+    height: 315px;
+    border: 3px solid #52b8ff;
+    transition: all .3s ease-in-out;
+    margin-bottom: 2rem;
+}
+
+#blog_post .video-section .video-container iframe:hover{
+     border: 4px solid rgba(233, 17, 17, 0.685);
 }
