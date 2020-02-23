@@ -48,10 +48,11 @@ header .header-menu a:hover{
     text-align: center;
     justify-content: center;
     padding-bottom: 30px;
-    padding-top: 10px;
-    
+    padding-top: 10px;  
 }
 
+
+/* Makes the text 'Joachim Issac's portfolio jiggle' */
 .title-header:hover{
     margin: auto;
     text-align: center;
@@ -61,10 +62,11 @@ header .header-menu a:hover{
     animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
     transform: translate3d(0, 0, 0);
     backface-visibility: hidden;
-    perspective: 1000px;
-    
+    perspective: 1000px; 
 }
 
+
+/* Trasition to make title-header shake */
 @keyframes shake {
   10%, 90% {
     transform: translate3d(-1px, 0, 0);
@@ -83,18 +85,18 @@ header .header-menu a:hover{
   }
 }
 
+
 .img-container{
     width: 300px;
     height: 250px;
     margin: auto;
 }
 
+
 img{
     height: 100%;
     width: 100%;
 }
-
-
 
 
 .introduction{
@@ -105,43 +107,6 @@ img{
     margin: auto;
 }
 
-/* .indicator{
-    padding: 20px;
-    font-family: sans-serif;
-    font-size: 1.3rem;
-    text-align: center;
-    margin: auto;
-    font-weight: bold;
-}
-
-
-.button-container{
-    display: flex;
-    margin: auto;
-    justify-content: center;
-    align-content: center;
-
-}
-
-.button-container button{
-    padding: 10px;
-    color: black;
-    border-radius: 20px;
-    border: black;
-    background: grey;
-    padding-left: 40px;
-    padding-right: 40px;
-    font-size: 1.5rem;
-    font-weight: bold;
-    
-}
-
-.button-container button:hover{
-    padding: 15px;
-    padding-left: 40px;
-    padding-right: 40px;
-} */
-
 /* End of content section */
 
 
@@ -151,10 +116,6 @@ img{
 #skills{
  max-width: 1150px;
  margin: 0 auto;
-}
-
-#skills #technologies{
-scroll-behavior: smooth;
 }
 
 
@@ -171,6 +132,14 @@ scroll-behavior: smooth;
     font-size: 3rem;
 }
 
+#skills .container h2{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 3rem;
+    font-family: monospace;
+}
+
+/* Gives the logos their size and grey color */
 #skills .container .fab{
     font-size: 80px;
     margin-right: 30px;
@@ -179,6 +148,8 @@ scroll-behavior: smooth;
     cursor: pointer;
 }
 
+
+/* Start Front end skills styling*/
 #skills .container .front-end-skills{
     border: 3px solid #52b8ff;
     width: 50%;
@@ -192,10 +163,14 @@ scroll-behavior: smooth;
     margin-top: 30px;
     
 }
+
+/* Logo transitions changes starts here */
+/* When you hover over the logos they change color and popout */
 #skills .container .front-end-skills .fab:nth-child(2):hover{
     font-size: 100px;
     color: orangered;
 }
+
 #skills .container .front-end-skills .fab:nth-child(3):hover{
     font-size: 100px;
     color: darkblue;
@@ -210,14 +185,20 @@ scroll-behavior: smooth;
     color: deeppink;
     
 } 
+/* Logo transition changes end here */
 
+
+/* Shapes the spans containing the skill names */
 #skills .container .front-end-skills .skill-names span{
     border: 1px solid #52b8ff;
     padding: 15px;
     border-radius: 5px 20px 5px;
     background: #7ecdf8; 
 }
+/* End of Front end skills styling*/
 
+
+/*Start of Back End Skills styling*/
 #skills .container .back-end-skills{
     border: 3px solid #52b8ff;
     width: 50%;
@@ -225,10 +206,12 @@ scroll-behavior: smooth;
     height: 260px;
 }
 
+/* Start of Logo transitions */
 #skills .container .back-end-skills .fab:nth-child(2):hover{
     font-size: 100px;
     color: yellow;
 }
+
 #skills .container .back-end-skills .fab:nth-child(3):hover{
     font-size: 100px;
     color: darkblue;
@@ -241,13 +224,17 @@ scroll-behavior: smooth;
     border-radius: 5px 20px 5px;
     background: #7ecdf8; 
 }
+/*End of Logo transitions */
 
 #skills .container .back-end-skills .skill-names{
     width: 100%;
     margin-top: 30px;
     
 }
+/*End of Back End Skills styling*/
 
+
+/* Start of version-control skill stlying*/
 #skills .container .version-control{
     border: 3px solid #52b8ff;
     width: 50%;
@@ -264,40 +251,35 @@ scroll-behavior: smooth;
 }
 
 
-
+/*Start of Logo transitions */
 #skills .container .version-control .fab:nth-child(2):hover{
     font-size: 100px;
     color: orangered;
 }
+
 #skills .container .version-control .fab:nth-child(3):hover{
     font-size: 100px;
-    color: black;
-    
+    color: black;    
 } 
 
-  #skills .container .version-control .fab:nth-child(4):hover{
+#skills .container .version-control .fab:nth-child(4):hover{
     font-size: 100px;
-    color: black;
-    
+    color: black; 
 }
+/*End of Logo transitions */
 
 #skills .container .version-control .skill-names{
     width: 100%;
     margin-top: 30px;
     
 }
-
-#skills .container h2{
-    margin-top: 20px;
-    margin-bottom: 20px;
-    font-size: 3rem;
-    font-family: monospace;
-}
+/* End of version-control skill stlying*/
+/* End of Skills section */
 
 
-/* End of skills section */
 
-/* start of portfolio section */
+/* Start of portfolio section */
+
 #portfolio{
 display: block;
 height: 800px;
@@ -309,7 +291,7 @@ height: 800px;
  margin: 0 auto;
 }
 
-
+/* Styling for project1 */
 #portfolio .container .project-1{
     display: flex;
     justify-content: center;
@@ -343,6 +325,8 @@ height: 800px;
     border: 4px solid rgba(233, 17, 17, 0.685);
 }
 
+
+/* Styling for porject1 buttons */
 #portfolio .container .project-1 button{
     padding: 10px;
     color: black;
@@ -357,6 +341,7 @@ height: 800px;
      transition: all .3s ease-in-out;
 }
 
+/* Styling for hover transition of project1 buttons */
 #portfolio .container .project-1 button:hover{
     padding: 20px;
     color: black;
@@ -369,12 +354,15 @@ height: 800px;
    
 }
 
-
 #portfolio .container .project-1 button a{
 text-decoration: none;
     color: black;
     font-family: monospace;
 } 
+
+/* End of portfolio section */
+
+
 
 /* Start of social media section */
 
@@ -422,7 +410,6 @@ text-decoration: none;
 #social_media .container a  i.fab.fa-github-square:hover{
     font-size: 8rem;
     color: rgba(0, 0, 0, 0.89);
-
 }
 
 #social_media .container a  i.fab.fa-youtube-square:hover{
@@ -432,7 +419,7 @@ text-decoration: none;
 /* End of social media section */
 
 
-/* Videos section start*/
+/* Videos section starts here*/
 #videos{
 max-width: 1150px;
  margin: 0 auto;
@@ -461,7 +448,7 @@ max-width: 1150px;
 #videos .container iframe:hover{
         border: 4px solid rgba(233, 17, 17, 0.685);
 }
-/* videos section end */
+/* videos section ends here */
 
 
 
@@ -469,7 +456,6 @@ max-width: 1150px;
 #blog_post{
     padding-top: 50px;
     font-family: sans-serif;
-    display: inline-block;
     border-radius: 3px;
     font-size: 1.2rem;
     line-height: 1.7;
@@ -522,5 +508,4 @@ max-width: 1150px;
 #blog_post .video-section .video-container iframe:hover{
      border: 4px solid rgba(233, 17, 17, 0.685);
 }
-
 /* end of blog section*/
