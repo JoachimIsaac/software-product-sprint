@@ -10,45 +10,154 @@
       crossorigin="anonymous"
       />
     <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
   </head>
   <body>
+    <!--##Top page intro content start##-->
     <div id="content">
-        
+
+         <!-- Nav-bar start-->
       <header>
           <div class="header-menu">
-              <a href="#">Skills</a>
-              <a href="#">Portfolio</a>
-              <a href="#">Education</a>
-              <a href="#">Videos</a>
+              <a href="#technologies-area">Skills</a>
+              <a href="#projects-area">Portfolio</a>
+              <a href="#video-area">Videos</a>
+              <a href="#social-media-area">Contact</a>
+              <a href="#blog-area">Blog</a>
           </div>
       </header>
+      <!-- Nav-bar end-->
+
       <h1 class="title-header">Joachim Isaac's Portfolio!</h1>
+
       <div class="img-container"><img src="/images/joachim_isaac.png"></div>
-      
+
       <p class="introduction">
         My name is Joachim Isaac, I am a Software engineer by trade, an avid amateur boxer, weightlifter and stock trader.
         I am very passionate about technology - not a specific framework or language.
         I'm interested in web developement and artificial intellegence to create a cool web applications, that make
         people's lives easier.
       </p>
-   
-     
-      <p class="indicator">Click Here to find out one of my interests</p>
-      <div class="button-container"><button onclick="addRandomGreeting()">Click</button></div>
-      <div id="facts-container"></div>
     </div>
+    <!--##Top page intro content end##-->
 
-    <section id="projects"> </section>
-    <section id="social_media">
-        <a href="https://www.linkedin.com/in/joachim-isaac-99701a149/"><i class="fab fa-linkedin"></i></a>
-        <a href="https://github.com/JoachimIsaac"><i class="fab fa-github-square"></i></a>
-        <a href="https://www.youtube.com/channel/UC2wfC0JXXWfJ13Fk0Y_CNJw?view_as=subscriber"><i class="fab fa-youtube-square"></i></a> 
+
+    <!--##Start of skills section##-->
+    <section id="skills">
+    
+    <!-- Link to navigate to skills section -->
+    <div id="technologies-area"></div>
+
+    <div class="container">
+    <h1>Full Stack Software Engineer</h1>
+    
+    <!--Start of FrontEnd skills -->
+    <div class="front-end-skills">
+    <h2>FrontEnd Skills</h2>
+    <i class="fab fa-html5"></i>
+    <i class="fab fa-css3-alt"></i>
+    <i class="fab fa-js-square"></i>
+    <i class="fab fa-sass"></i>
+    <div class="skill-names">
+        <span>HTML5</span>
+        <span>CSS3</span>
+        <span>Javascript</span>
+        <span>SASS</span>
+    </div>
+    </div>
+    <!--End of FrontEnd skills -->
+
+
+    <!--Start of BackEnd skills -->
+    <div class="back-end-skills">
+    <h2>BackEnd Skills</h2>
+    <i class="fab fa-python"></i>
+    <i class="fab fa-java"></i>
+    <div class="skill-names">
+        <span>Python</span>
+        <span>Java</span>
+    </div>
+    </div>
+    <!--End of BackEnd skills -->
+
+    <!--Start of Version Control Skills -->
+    <div class="version-control">
+    <h2>Version Control</h2>
+    <i class="fab fa-git-square"></i>
+    <i class="fab fa-github-square"></i>
+    <i class="fab fa-linux"></i>
+    <div class="skill-names">
+        <span>Git</span>
+        <span>GitHub</span>
+        <span>Unix/Linux</span>
+    </div>
+    </div>
+    </div>
     </section>
-    <section id="about_me"></section> 
-    <section id="cs_videos"></section>
+    <!--End of Version Control Skills -->
+
+    <!--##End of skills section##-->
+
+
+    <!--##Start of Portfolio section##-->
+    <section id="portfolio">
+        
+        <!-- Link to navigate to Portfolio Section -->
+        <div id="projects-area"></div>
+
+        <div class="container">
+            <div class="project-1">
+                <h1>Projects</h1>
+                <h2>RockBand Website</h2>
+                <iframe src="https://www.youtube.com/embed/V6Rzqlickz0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                 <button><a href="https://github.com/JoachimIsaac/Three_days_grace_website" target="_blank">View Code</a></button>
+                 <button><a href="https://threedaysgrace.herokuapp.com/" target="_blank">View Site</a></button>
+            </div>
+        </div>
+    </section>
+    <!--##End of Portfolio section##-->
+    
+    <!--##Start of Social-media section##-->
+    <section id="social_media">
+
+        <!-- Link to navigate to Social -media Section -->
+        <div id="social-media-area"></div>
+
+        <h1>Contact Me</h1>
+        <div class="container">
+        <a href="https://www.linkedin.com/in/joachim-isaac-99701a149/" target="_blank"><i class="fab fa-linkedin"></i></a>
+        <a href="https://github.com/JoachimIsaac" target="_blank"><i class="fab fa-github-square" target="_blank"></i></a>
+        <a href="https://www.youtube.com/channel/UC2wfC0JXXWfJ13Fk0Y_CNJw?view_as=subscriber"target="_blank"><i class="fab fa-youtube-square"></i></a>
+        </div>
+    </section>
+    <!--##End of Social-media section##-->
+
+
+    <!--##Start of Video section##-->
+    <section id="videos">
+        
+        <!-- Link to navigate to video-area Section -->
+        <div id="video-area"></div>
+
+        <div class="container">
+            <h1>Videos</h1>
+            <iframe src="https://www.youtube.com/embed/vI17nT4WrMM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/koNlOFT3C7o" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/CTub4Vts8l8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+    </section>
+    <!--##End of Video section##-->
+
+
+    <!--##Start of Blog-Post section##-->
     <section id="blog_post">
+
+        <!-- Link to navigate to Blog Section -->
+        <div id="blog-area"></div>
+        <div class="container">
+        <div class="top-of-post">
         <h1>The Best Way to learn the Syntax Of Your Next Programming language!</h1>
+        </div>
+        <div class="post">
         <p>
         Everyone knows that the journey of becoming a software developer is challenging, but a rewarding one. 
         On my journey, it was apparent to me that the need for clarity and assurance was the main focus when beginning. 
@@ -83,7 +192,6 @@
         I always look for ways to optimize the learning process in whatever I do, 
         so that I can carry over that process in different situations.
         </p>
-
         <p>
         My crazy idea was that I should learn algorithms and data structures using javascript so that I could learn it. 
         The idea behind this was that it would get me to really dig deep into the language 
@@ -111,10 +219,16 @@
         on youtube using javascript. Explaining hard concepts to people reinforces your knowledge and challenges you to 
         really understand the material.
         </p>
-        <h2>Here is a Video of me answering a Programming Question with javascript</h2>
-        <!-- Iframe of video here. -->
+        </div>
 
+        <div class="video-section">
+        <h2>Here is a Video of me answering the Leetcode Question Contains Duplicate</h2>
+        <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/FAjFIDLFWhM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        </div>
     </section>
+    <!--##End of Blog-Post section##-->
    
   </body>
 </html>

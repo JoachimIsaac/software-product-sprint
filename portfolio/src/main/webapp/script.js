@@ -15,19 +15,3 @@
 /**
  * Adds a random greeting to the page.
  */
-function addRandomGreeting() {
-  const facts =[
-      'I have lost 150lbs in my life time', 
-      'I love running and hope to do a marathon soon',
-      'I believe that Knowledge is power',
-      'I love learning new things',
-      'I am always investing in audio books and courses on things outside of CS.'
-      ];
-
-  // Pick a random greeting.
-  const fact= facts[Math.floor(Math.random() * facts.length)];
-
-  // Add it to the page.
-  const factsContainer = document.getElementById('facts-container');
-  factsContainer.innerText = fact;
-}

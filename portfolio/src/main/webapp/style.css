@@ -1,17 +1,21 @@
 
+/* Start of content section */
+
+html {
+  scroll-behavior: smooth;
+}
+
 #content {
   margin-left: auto;
   margin-right: auto;
   width: 650px;
 }
 
-
 header{
     display: flex;
     padding: 20px;
     justify-content: center;
 }
-
 
 header .header-menu {
     display: flex;
@@ -21,17 +25,17 @@ header .header-menu {
     align-items: center;
 }
 
-
 header .header-menu a{
-    font-size: 1rem;
+    font-size: 2.5rem;
     text-transform: uppercase;
     text-decoration: none;
     color: black;
     padding: 0 10px;
+    font-family: monospace;
 }
 
 header .header-menu a:hover{
-    font-size: 1.5rem;
+    font-size: 3rem;
     text-transform: uppercase;
     text-decoration: none;
     color: rgb(235, 69, 69);
@@ -44,10 +48,11 @@ header .header-menu a:hover{
     text-align: center;
     justify-content: center;
     padding-bottom: 30px;
-    padding-top: 10px;
-    
+    padding-top: 10px;  
 }
 
+
+/* Makes the text 'Joachim Issac's portfolio jiggle' */
 .title-header:hover{
     margin: auto;
     text-align: center;
@@ -57,10 +62,11 @@ header .header-menu a:hover{
     animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
     transform: translate3d(0, 0, 0);
     backface-visibility: hidden;
-    perspective: 1000px;
-    
+    perspective: 1000px; 
 }
 
+
+/* Trasition to make title-header shake */
 @keyframes shake {
   10%, 90% {
     transform: translate3d(-1px, 0, 0);
@@ -79,18 +85,18 @@ header .header-menu a:hover{
   }
 }
 
+
 .img-container{
     width: 300px;
     height: 250px;
     margin: auto;
 }
 
+
 img{
     height: 100%;
     width: 100%;
 }
-
-
 
 
 .introduction{
@@ -101,38 +107,405 @@ img{
     margin: auto;
 }
 
-.indicator{
-    padding: 20px;
-    font-family: sans-serif;
-    font-size: 1rem;
-    text-align: center;
-    margin: auto;
+/* End of content section */
+
+
+
+/* Start of skills section */
+
+#skills{
+ max-width: 1150px;
+ margin: 0 auto;
 }
 
 
-.button-container{
+#skills .container{
     display: flex;
-    margin: auto;
-    justify-content: center;
-    align-content: center;
-
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
 }
 
-.button-container button{
-    padding: 20px;
+#skills .container h1{
+    margin-top: 50px;
+    margin-bottom: 0px;
+    font-size: 3rem;
+}
+
+#skills .container h2{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 3rem;
+    font-family: monospace;
+}
+
+/* Gives the logos their size and grey color */
+#skills .container .fab{
+    font-size: 80px;
+    margin-right: 30px;
+    color: #8e8f91;
+    transition: all .3s ease-in-out;
+    cursor: pointer;
+}
+
+
+/* Start Front end skills styling*/
+#skills .container .front-end-skills{
+    border: 3px solid #52b8ff;
+    width: 50%;
+    margin-top: 50px;
+    height: 260px;
+}
+    
+
+#skills .container .front-end-skills .skill-names{
+    width: 100%;
+    margin-top: 30px;
+    
+}
+
+/* Logo transitions changes starts here */
+/* When you hover over the logos they change color and popout */
+#skills .container .front-end-skills .fab:nth-child(2):hover{
+    font-size: 100px;
+    color: orangered;
+}
+
+#skills .container .front-end-skills .fab:nth-child(3):hover{
+    font-size: 100px;
+    color: darkblue;
+    
+} 
+#skills .container .front-end-skills .fab:nth-child(4):hover{
+    font-size: 100px;
+    color: yellow;
+}
+#skills .container .front-end-skills .fab:nth-child(5):hover{
+    font-size: 100px;
+    color: deeppink;
+    
+} 
+/* Logo transition changes end here */
+
+
+/* Shapes the spans containing the skill names */
+#skills .container .front-end-skills .skill-names span{
+    border: 1px solid #52b8ff;
+    padding: 15px;
+    border-radius: 5px 20px 5px;
+    background: #7ecdf8; 
+}
+/* End of Front end skills styling*/
+
+
+/*Start of Back End Skills styling*/
+#skills .container .back-end-skills{
+    border: 3px solid #52b8ff;
+    width: 50%;
+    margin-top: 50px;
+    height: 260px;
+}
+
+/* Start of Logo transitions */
+#skills .container .back-end-skills .fab:nth-child(2):hover{
+    font-size: 100px;
+    color: yellow;
+}
+
+#skills .container .back-end-skills .fab:nth-child(3):hover{
+    font-size: 100px;
+    color: darkblue;
+    
+} 
+
+#skills .container .back-end-skills .skill-names span{
+    border: 1px solid #52b8ff;
+    padding: 15px;
+    border-radius: 5px 20px 5px;
+    background: #7ecdf8; 
+}
+/*End of Logo transitions */
+
+#skills .container .back-end-skills .skill-names{
+    width: 100%;
+    margin-top: 30px;
+    
+}
+/*End of Back End Skills styling*/
+
+
+/* Start of version-control skill stlying*/
+#skills .container .version-control{
+    border: 3px solid #52b8ff;
+    width: 50%;
+    margin-top: 50px;
+    height: 260px;
+}
+
+
+#skills .container .version-control .skill-names span{
+    border: 1px solid #52b8ff;
+    padding: 15px;
+    border-radius: 5px 20px 5px;
+    background: #7ecdf8; 
+}
+
+
+/*Start of Logo transitions */
+#skills .container .version-control .fab:nth-child(2):hover{
+    font-size: 100px;
+    color: orangered;
+}
+
+#skills .container .version-control .fab:nth-child(3):hover{
+    font-size: 100px;
+    color: black;    
+} 
+
+#skills .container .version-control .fab:nth-child(4):hover{
+    font-size: 100px;
+    color: black; 
+}
+/*End of Logo transitions */
+
+#skills .container .version-control .skill-names{
+    width: 100%;
+    margin-top: 30px;
+    
+}
+/* End of version-control skill stlying*/
+/* End of Skills section */
+
+
+
+/* Start of portfolio section */
+
+#portfolio{
+display: block;
+height: 800px;
+}
+
+
+#portfolio .container{
+ max-width: 1150px;
+ margin: 0 auto;
+}
+
+/* Styling for project1 */
+#portfolio .container .project-1{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    margin-bottom: 50px;
+    margin-top: 50px;
+}
+
+#portfolio .container .project-1 h1{
+    font-size: 4rem;
+}
+
+
+#portfolio .container .project-1 h2{
+    font-size: 1.5rem;
+    font-family: monospace;
+    font-size: 2.5rem;
+}
+
+#portfolio .container .project-1 iframe{
+    width: 560px;
+    height: 315px;
+    border: 3px solid #52b8ff;
+    transition: all .3s ease-in-out;
+    margin-bottom: 2rem;
+}
+
+#portfolio .container .project-1 iframe:hover{
+    border: 4px solid rgba(233, 17, 17, 0.685);
+}
+
+
+/* Styling for porject1 buttons */
+#portfolio .container .project-1 button{
+    padding: 10px;
     color: black;
     border-radius: 20px;
     border: black;
     background: grey;
     padding-left: 40px;
+    margin-top: 20px;
     padding-right: 40px;
-    
+    font-size: 1.5rem;
+    font-weight: bold;
+     transition: all .3s ease-in-out;
 }
 
-#facts-container {
-  display: flex;
-  margin: auto;
-  justify-content: center;
-  align-content: center;
-  padding: 40px;
+/* Styling for hover transition of project1 buttons */
+#portfolio .container .project-1 button:hover{
+    padding: 20px;
+    color: black;
+    border-radius: 20px;
+    border: black;
+    background: rgb(204, 125, 125);
+    padding-left: 50px;
+    padding-right: 50px;
+    font-size: 2rem;
+   
 }
+
+#portfolio .container .project-1 button a{
+text-decoration: none;
+    color: black;
+    font-family: monospace;
+} 
+
+/* End of portfolio section */
+
+
+
+/* Start of social media section */
+
+#social_media {
+   max-width: 1150px;
+    margin: 0 auto;
+    margin-top: 100px;
+    margin-bottom: 40px;
+}
+
+#social_media h1{
+    font-size: 3rem;
+    text-align: center;
+
+}
+
+#social_media .container{
+    display: flex;
+    padding-left: 35%;
+    padding-right: 35%;
+    justify-content: space-evenly;
+    height: 150px; 
+}
+
+
+
+#social_media .container a {
+    height: 100%;
+    text-decoration: none;
+    font-size: 6rem;
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    color: #8e8f91;
+    transition: all .10s ease-in-out; 
+
+}
+
+#social_media .container a  i.fab.fa-linkedin:hover{
+    font-size: 8rem;
+    color: #0073b1;
+
+}
+
+#social_media .container a  i.fab.fa-github-square:hover{
+    font-size: 8rem;
+    color: rgba(0, 0, 0, 0.89);
+}
+
+#social_media .container a  i.fab.fa-youtube-square:hover{
+    font-size: 8rem;
+    color: rgba(233, 17, 17, 0.685);
+}
+/* End of social media section */
+
+
+/* Videos section starts here*/
+#videos{
+max-width: 1150px;
+ margin: 0 auto;
+}
+
+
+#videos .container{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+#videos .container h1{
+    font-size: 3rem;
+}
+
+#videos .container iframe{
+     width: 560px;
+    height: 315px;
+    border: 3px solid #52b8ff;
+    transition: all .3s ease-in-out;
+    margin-bottom: 2rem;
+}
+
+#videos .container iframe:hover{
+        border: 4px solid rgba(233, 17, 17, 0.685);
+}
+/* videos section ends here */
+
+
+
+/* Start of blog section */
+#blog_post{
+    padding-top: 50px;
+    font-family: sans-serif;
+    border-radius: 3px;
+    font-size: 1.2rem;
+    line-height: 1.7;
+    text-decoration: none;
+    margin-bottom: 1.8rem;
+    display: block;
+}
+
+#blog_post .container{
+    max-width: 1150px;
+    margin: 0 auto;
+
+}
+
+#blog_post .top-of-post{
+    text-align: center;
+}
+
+
+#blog_post .post{
+    display: inline-block;
+    border-radius: 3px;
+    font-size: 1.2rem;
+    line-height: 1.7;
+    text-decoration: none;
+    margin-bottom: 1.8rem;
+    color: rgba(0, 0, 0, 0.87);
+}
+
+
+
+#blog_post .video-section{
+    text-align: center;
+}
+
+#blog_post .video-section .video-container {
+    width: 590px;
+    height: 350px;
+    margin: auto;
+}
+
+#blog_post .video-section .video-container iframe{
+    width: 560px;
+    height: 315px;
+    border: 3px solid #52b8ff;
+    transition: all .3s ease-in-out;
+    margin-bottom: 2rem;
+}
+
+#blog_post .video-section .video-container iframe:hover{
+     border: 4px solid rgba(233, 17, 17, 0.685);
+}
+/* end of blog section*/
