@@ -15,3 +15,15 @@
 /**
  * Adds a random greeting to the page.
  */
+
+
+async function getContentUsingAsyncAwait(){
+    console.log("It's starting to fetch!");
+    
+    const response = await fetch('/data');
+
+    const content = await response.text();
+
+    document.getElementById('info_container').innerText = content;
+}
+
