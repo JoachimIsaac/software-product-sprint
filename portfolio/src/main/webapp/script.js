@@ -27,3 +27,25 @@ async function getContentUsingAsyncAwait(){
     document.getElementById('info_container').innerText = content;
 }
 
+function getServerStats() {
+  fetch('/data').then(response => response.json()).then((data) => {
+    // stats is an object, not a string, so we have to
+    // reference its fields to create HTML content
+    const divElement = document.getElementById('info_container');
+    console.log(data);
+    divElement.innerHTML = '';
+    divElement.appendChild(
+        createListElement('Contestant1: ' + data[0]));
+    divElement.appendChild(
+        createListElement('Contestant2: ' + data[1]));
+    divElement.appendChild(
+        createListElement('Contestant3: ' + data[2]));
+  });
+}
+
+
+function createListElement(text) {
+  const liElement = document.createElement('li');
+  liElement.innerText = text;
+  return liElement;
+}
