@@ -13,7 +13,12 @@
 // limitations under the License.
 
 package com.google.sps.servlets;
-
+import com.google.appengine.api.datastore.DatastoreService;
+import com.google.appengine.api.datastore.DatastoreServiceFactory;
+import com.google.appengine.api.datastore.Entity;
+import com.google.appengine.api.datastore.PreparedQuery;
+import com.google.appengine.api.datastore.Query;
+import com.google.appengine.api.datastore.Query.SortDirection;
 import java.io.IOException;
 import com.google.gson.Gson;
 import javax.servlet.annotation.WebServlet;
@@ -29,12 +34,24 @@ import java.util.*;
 @WebServlet("/data")
 public class DataServlet extends HttpServlet {
   
-  ArrayList<String> data = new ArrayList<String>(0);
+  
 
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
     
     Gson gson = new Gson();
+    
+    ArrayList<String> data = new ArrayList<String>(0);
+    Query query = new Query("Comments");
+    DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
+    PreparedQuery results = datastore.prepare(query);
+
+    for (Entity entity : results.asIterable()) {
+        String comment = (String) entity.getProperty("comment");
+        data.add(comment);
+    }
+
+    
     String json = gson.toJson(data);     
     response.setContentType("application/json;");
     response.getWriter().println(json);
@@ -46,12 +63,21 @@ public class DataServlet extends HttpServlet {
 
     // Get the input from the form.
     String comment = getComment(request);
+
+    Entity commentEntity = new Entity("Comments");
+    commentEntity.setProperty("comment", comment);
+
+    DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
     
-    data.add(0,comment);
+    // data.add(0,comment);
+    
+    datastore.put(commentEntity);
     
     // Redirect back to the HTML page.
     response.sendRedirect("/index.html");
   }
+
+
 
 private String getComment(HttpServletRequest request) {
     String comment_String = request.getParameter("comment-box");
