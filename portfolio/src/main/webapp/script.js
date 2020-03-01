@@ -17,6 +17,8 @@
  */
 
 
+
+
 async function getContentUsingAsyncAwait(){
     console.log("It's starting to fetch!");
     
@@ -27,19 +29,31 @@ async function getContentUsingAsyncAwait(){
     document.getElementById('info_container').innerText = content;
 }
 
-function getServerStats() {
+function getServerComments() {
   fetch('/data').then(response => response.json()).then((data) => {
     // stats is an object, not a string, so we have to
     // reference its fields to create HTML content
-    const divElement = document.getElementById('info_container');
+    // const divElement = document.getElementById('info_container');
+    
+    if(data.length === 0 ){
+        return;
+    }
     console.log(data);
-    divElement.innerHTML = '';
-    divElement.appendChild(
-        createListElement('Contestant1: ' + data[0]));
-    divElement.appendChild(
-        createListElement('Contestant2: ' + data[1]));
-    divElement.appendChild(
-        createListElement('Contestant3: ' + data[2]));
+
+    // divElement.innerHTML = '';
+
+  
+    
+
+     // Build the list of history entries.
+    const historyEl = document.getElementById('info_container');
+    var counter = data.length;
+     for(var start = 0; start < data.length; start++ ){
+         
+        historyEl.appendChild(createListElement('Comment'+ counter +": " + data[counter-1]));
+      counter--;
+      
+     }
   });
 }
 

@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
   </head>
-  <body>
+  <body onload="getServerComments()">
     <!--##Top page intro content start##-->
     <div id="content">
 
@@ -232,11 +232,17 @@
     <!--##End of Blog-Post section##-->
 
    <!-- Java servelets testing section start-->
-   <section id="info_section">
+   <section id="comment_section">
+       
+    <form action="/data" method="POST">
+      <h2>Any Questions? Leave a comment:</h2>
+    
+      <textarea  name="comment-box"></textarea>
+      <input name="text-input" type="submit" />
+    </form>
+   
 
-    <button class="info_button" onclick=" getServerStats()">Fetch info!</button>
-
-      <div id="info_container"></div>
+    <div id="info_container"></div>
 
    </section>
    <!-- Java Java servelets testing section end -->

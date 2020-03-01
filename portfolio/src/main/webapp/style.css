@@ -513,30 +513,53 @@ max-width: 1150px;
 
 /* Info button start and container*/
 
-#info_section{
-
-        display: flex;
-    flex-direction: column;
-    margin-bottom: 100px;
-    align-items: center;
+#comment_section{
+    height: 400px;
     margin-top: 100px;
+    text-align: center;
 }
 
- .info_button{
-   padding: 10px;
+#comment_section form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+
+    
+}
+
+#comment_section form h2{
+font-size: 2rem;
+font-family: monospace;
+}
+
+#comment_section form textarea{
+    border: 3px solid #52b8ff;
+    font-family: monospace;
+    font-size: 1.3rem;
+    width: 45%;
+    height: 40%;
+}
+
+#comment_section form input{
+    
+    margin-top: 40px;
+    margin-bottom: 40px;
+    padding: 10px;
     color: black;
-    border-radius: 20px;
+    border-radius: 25px;
     border: black;
     background: grey;
-    padding-left: 40px;
-    margin-top: 20px;
-    padding-right: 40px;
+    padding-left: 35px;
+    padding-right: 33px;
     font-size: 1.5rem;
     font-weight: bold;
-    width: 200px;
     transition: all .3s ease-in-out;
 
- }
+}
+
 
 #info_container{
 

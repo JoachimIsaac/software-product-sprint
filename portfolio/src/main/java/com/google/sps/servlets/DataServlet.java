@@ -22,27 +22,41 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.io.*; 
+import java.util.*; 
 
 /** Servlet that returns some example content. TODO: modify this file to handle comments data */
 @WebServlet("/data")
 public class DataServlet extends HttpServlet {
+  
+  ArrayList<String> data = new ArrayList<String>(0);
+
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-    ArrayList<String> data = new ArrayList<String>(Arrays.asList("John","Dick", "Harry"));
+    
     Gson gson = new Gson();
-    String json = gson.toJson(data); 
-    
-    
-
-
-    
+    String json = gson.toJson(data);     
     response.setContentType("application/json;");
     response.getWriter().println(json);
-
-
-  
   }
 
+   @Override
+  public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    
+
+    // Get the input from the form.
+    String comment = getComment(request);
+    
+    data.add(0,comment);
+    
+    // Redirect back to the HTML page.
+    response.sendRedirect("/index.html");
+  }
+
+private String getComment(HttpServletRequest request) {
+    String comment_String = request.getParameter("comment-box");
+    return comment_String;
+}
 
   
 }
