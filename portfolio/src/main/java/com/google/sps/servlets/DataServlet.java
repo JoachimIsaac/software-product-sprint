@@ -19,48 +19,41 @@ import com.google.appengine.api.datastore.Entity;
 import com.google.appengine.api.datastore.PreparedQuery;
 import com.google.appengine.api.datastore.Query;
 import com.google.appengine.api.datastore.Query.SortDirection;
-import java.io.IOException;
 import com.google.gson.Gson;
+import java.io.*;
+import java.io.IOException;
+import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.io.*; 
-import java.util.*; 
 
 /** Servlet that returns some example content. TODO: modify this file to handle comments data */
 @WebServlet("/data")
 public class DataServlet extends HttpServlet {
-  
-  
-
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-    
     Gson gson = new Gson();
-    
+
     ArrayList<String> data = new ArrayList<String>(0);
     Query query = new Query("Comments");
     DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
     PreparedQuery results = datastore.prepare(query);
 
     for (Entity entity : results.asIterable()) {
-        String comment = (String) entity.getProperty("comment");
-        data.add(comment);
+      String comment = (String) entity.getProperty("comment");
+      data.add(comment);
     }
 
-    
-    String json = gson.toJson(data);     
+    String json = gson.toJson(data);
     response.setContentType("application/json;");
     response.getWriter().println(json);
   }
 
-   @Override
+  @Override
   public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
-    
-
     // Get the input from the form.
     String comment = getComment(request);
 
@@ -68,21 +61,20 @@ public class DataServlet extends HttpServlet {
     commentEntity.setProperty("comment", comment);
 
     DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
-    
+
     // data.add(0,comment);
-    
+
     datastore.put(commentEntity);
-    
+
     // Redirect back to the HTML page.
     response.sendRedirect("/index.html");
   }
 
-
-
-private String getComment(HttpServletRequest request) {
+  private String getComment(HttpServletRequest request) {
+    String full_String = request.getParameter("name");
+    full_String += "~ ";
     String comment_String = request.getParameter("comment-box");
-    return comment_String;
-}
-
-  
+    full_String += comment_String;
+    return full_String;
+  }
 }

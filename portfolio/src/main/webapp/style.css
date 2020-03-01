@@ -514,8 +514,8 @@ max-width: 1150px;
 /* Info button start and container*/
 
 #comment_section{
-    height: 400px;
-    margin-top: 100px;
+    height: 700px;
+    margin-top: auto;
     text-align: center;
 }
 
@@ -543,7 +543,27 @@ font-family: monospace;
     height: 40%;
 }
 
-#comment_section form input{
+#comment_section form #name-box{
+    
+   
+    border: 3px solid #52b8ff;
+    width: 45%;
+    height: 8%;
+    font-size: 1.3rem;
+
+}
+
+
+comment_section form label h3{
+font-family: monospace;
+
+}
+
+
+
+
+
+#comment_section form #text-box{
     
     margin-top: 40px;
     margin-bottom: 40px;
@@ -560,10 +580,28 @@ font-family: monospace;
 
 }
 
-
 #info_container{
-
+    width: 100%;
+    height: 100%;
     margin-top: 50px;
+    text-align: center;
+    border: 3px solid #52b8ff;
+    background: rgb(190, 190, 196);
+}
+
+#info_container h1{
+    font-family: monospace;
+}
+#info_container li{
+        /* text-decoration: none; */
+    list-style: none;
+    font-size: 2rem;
+    font-family: monospace;
+    width: 100%;
+    margin: auto;
+    display: inline;
+    border: 3px solid black;
 }
 
 /* Info button end and container*/
+

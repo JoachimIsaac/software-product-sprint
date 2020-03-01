@@ -237,15 +237,21 @@
     <form action="/data" method="POST">
       <h2>Any Questions? Leave a comment:</h2>
     
+      <label id="label-fname" for="fname"><h3>Name:</h3></label>
+      <input type="text" id="name-box" name="name"><br><br>
+      <label id="label-comment-box" for="comment"><h3>Comment:</h3></label>
       <textarea  name="comment-box"></textarea>
-      <input name="text-input" type="submit" />
+      <input id="text-box" name="text-input" type="submit" />
     </form>
-   
-
-    <div id="info_container"></div>
-
+    
    </section>
    <!-- Java Java servelets testing section end -->
+
+   <div id="info_container">
+       <h1>Comments:</h1>
+
+       
+   </div>
   </body>
 </html>
 

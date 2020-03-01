@@ -18,15 +18,14 @@
 
 
 
+async function getContentUsingAsyncAwait() {
+  console.log('It\'s starting to fetch!');
 
-async function getContentUsingAsyncAwait(){
-    console.log("It's starting to fetch!");
-    
-    const response = await fetch('/data');
+  const response = await fetch('/data');
 
-    const content = await response.text();
+  const content = await response.text();
 
-    document.getElementById('info_container').innerText = content;
+  document.getElementById('info_container').innerText = content;
 }
 
 function getServerComments() {
@@ -34,26 +33,27 @@ function getServerComments() {
     // stats is an object, not a string, so we have to
     // reference its fields to create HTML content
     // const divElement = document.getElementById('info_container');
-    
-    if(data.length === 0 ){
-        return;
+
+    if (data.length === 0) {
+      return;
     }
     console.log(data);
 
-    // divElement.innerHTML = '';
 
-  
-    
 
-     // Build the list of history entries.
+
+    // Build the list of history entries.
     const historyEl = document.getElementById('info_container');
     var counter = data.length;
-     for(var start = 0; start < data.length; start++ ){
-         
-        historyEl.appendChild(createListElement('Comment'+ counter +": " + data[counter-1]));
+    for (let start = 0; start < data.length; start++) {
+      let name = data[start].split('~', 1);
+      let userComment = data[start].split(name + '~ ');
+      let userCommentCleaned = userComment.join('');
+
+      historyEl.appendChild(
+          createListElement(name + ': ' + userCommentCleaned));
       counter--;
-      
-     }
+    }
   });
 }
 
