@@ -12,54 +12,72 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-/**
- * Adds a random greeting to the page.
- */
 
 
-
-async function getContentUsingAsyncAwait() {
-  console.log('It\'s starting to fetch!');
-
-  const response = await fetch('/data');
-
-  const content = await response.text();
-
-  document.getElementById('info_container').innerText = content;
+//doget may be the issue
+async function loadAllComments() {
+  clearCommentContainer();
+  showCommentsLoadingMessage();
+  const response = await fetch('/comment');
+  const comments = await response.json();
+  hideCommentsLoadingMessage();
+  addCommentsToContainer(comments);
+ 
 }
 
-function getServerComments() {
-  fetch('/data').then(response => response.json()).then((data) => {
-    // stats is an object, not a string, so we have to
-    // reference its fields to create HTML content
-    // const divElement = document.getElementById('info_container');
-
-    if (data.length === 0) {
-      return;
-    }
-    console.log(data);
-
-
-
-
-    // Build the list of history entries.
-    const historyEl = document.getElementById('info_container');
-    var counter = data.length;
-    for (let start = 0; start < data.length; start++) {
-      let name = data[start].split('~', 1);
-      let userComment = data[start].split(name + '~ ');
-      let userCommentCleaned = userComment.join('');
-
-      historyEl.appendChild(
-          createListElement(name + ': ' + userCommentCleaned));
-      counter--;
-    }
-  });
+function clearCommentContainer() {
+  const commentContainer = document.getElementById('comments');
+  while (commentContainer.firstChild) {
+    commentContainer.removeChild(commentContainer.firstChild);
+  }
 }
 
-
-function createListElement(text) {
-  const liElement = document.createElement('li');
-  liElement.innerText = text;
-  return liElement;
+function showCommentsLoadingMessage() {
+  document.getElementById('comments-loading').style.display = 'block';
 }
+
+function hideCommentsLoadingMessage() {
+  document.getElementById('comments-loading').style.display = 'none';
+}
+
+function addCommentsToContainer(comments) {
+  const commentContainer = document.getElementById('comments');
+  console.log(comments);
+  if (comments.length == 0) {
+    commentContainer.innerText = 'No comments have been added!'
+    return;
+  }
+
+  for (const comment of comments) {
+    commentContainer.append(createCommentElement(comment));
+  }
+}
+
+function createCommentElement(comment) {
+  const commentElement = document.createElement('p');
+  commentElement.innerText = `${comment.author}: ${comment.comment}`;
+  return commentElement;
+}
+
+function addComment() {
+  fetch('/comment', {
+    method: 'post',
+    body: new URLSearchParams(new FormData(document.getElementById('comment-form')))
+  }).then(loadAllComments);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  // Fetch and display all of the comments once the DOM is ready.
+  loadAllComments();
+
+  // Add an event listener to the comment form submission button.
+  document.getElementById('comment-form-submit')
+      .addEventListener('click', addComment);
+
+
+}); 
+
+
+
+
+

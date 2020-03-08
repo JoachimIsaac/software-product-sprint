@@ -535,6 +535,22 @@ font-size: 2rem;
 font-family: monospace;
 }
 
+
+#comment_section form #comment-form-submit{
+    padding: 10px;
+    color: black;
+    border-radius: 20px;
+    border: black;
+    background: grey;
+    padding-left: 40px;
+    margin-top: 20px;
+    padding-right: 40px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    transition: all .3s ease-in-out;
+}
+
+
 #comment_section form textarea{
     border: 3px solid #52b8ff;
     font-family: monospace;
@@ -593,7 +609,6 @@ font-family: monospace;
     font-family: monospace;
 }
 #info_container li{
-        /* text-decoration: none; */
     list-style: none;
     font-size: 2rem;
     font-family: monospace;
@@ -605,3 +620,24 @@ font-family: monospace;
 
 /* Info button end and container*/
 
+/* Interests area start */
+
+#chart-area{
+    margin-top: 100px;
+    text-align: center;
+
+}
+#chart-area h1{
+    font-size: 3rem;
+    display: block;
+    margin: auto;
+}
+
+
+
+#chart-area #chart-container{
+    margin: auto;
+    width: 80%;
+    height: 80%;
+}
+/*Interests area end*/

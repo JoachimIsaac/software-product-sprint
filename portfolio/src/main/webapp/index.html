@@ -10,9 +10,12 @@
       crossorigin="anonymous"
       />
     <link rel="stylesheet" href="style.css">
+    <script src="https://www.gstatic.com/charts/loader.js">
+	</script>
     <script src="script.js"></script>
+    <script src="chart-script.js"></script>
   </head>
-  <body onload="getServerComments()">
+  <body>
     <!--##Top page intro content start##-->
     <div id="content">
 
@@ -231,27 +234,40 @@
     </section>
     <!--##End of Blog-Post section##-->
 
+
+<!-- Chart area start -->
+<section id="chart-area">
+    <h1>Intrests</h1>
+    <div id="chart-container"></div>
+</section>
+<!-- Chart area end -->
+
+
    <!-- Java servelets testing section start-->
    <section id="comment_section">
        
-    <form action="/data" method="POST">
+    <form action="" method="POST" id="comment-form">
       <h2>Any Questions? Leave a comment:</h2>
     
-      <label id="label-fname" for="fname"><h3>Name:</h3></label>
-      <input type="text" id="name-box" name="name"><br><br>
+      <label id="label-fname" for="author"><h3>Name:</h3></label>
+      <input type="text" id="name-box" name="author">
+      <br><br>
       <label id="label-comment-box" for="comment"><h3>Comment:</h3></label>
-      <textarea  name="comment-box"></textarea>
-      <input id="text-box" name="text-input" type="submit" />
+      <textarea  name="comment"></textarea>
+      <input type="submit" id="comment-form-submit" value="Comment"/>
     </form>
     
    </section>
    <!-- Java Java servelets testing section end -->
 
-   <div id="info_container">
-       <h1>Comments:</h1>
 
-       
+<!-- Comments area start -->
+   <div id="info_container">
+      <h1>Comments:</h1>
+      <p id="comments-loading">Loading comments...</p>
+      <div id="comments"></div>
    </div>
+   <!-- Comments area end -->
   </body>
 </html>
 
