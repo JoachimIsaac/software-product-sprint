@@ -16,31 +16,30 @@ package com.google.sps.servlets;
 import com.google.appengine.api.datastore.DatastoreService;
 import com.google.appengine.api.datastore.DatastoreServiceFactory;
 import com.google.appengine.api.datastore.Entity;
-import java.util.logging.Logger;
 import com.google.appengine.api.datastore.PreparedQuery;
 import com.google.appengine.api.datastore.Query;
 import com.google.appengine.api.datastore.Query.SortDirection;
+import com.google.gson.Gson;
 import com.google.sps.comments.Comment;
 import com.google.sps.comments.CommentService;
-import com.google.gson.Gson;
 import java.io.*;
 import java.io.IOException;
 import java.util.*;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.logging.Logger;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /** Servlet for handeling everything comment related.**/
-@WebServlet("/comment") // change the html 
+@WebServlet("/comment") // change the html
 public class CommentServlet extends HttpServlet {
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
     Servlets.sendJsonResponse(response,
         CommentService.toJson(CommentService.fetchAsList(CommentService.createQueryForAll())));
-
   }
 
   @Override
@@ -48,8 +47,5 @@ public class CommentServlet extends HttpServlet {
     Logger log = Logger.getLogger("Comment");
     log.severe(request.getParameterMap().toString());
     CommentService.add(Comment.fromServletRequest(request));
-    
   }
-
-
 }

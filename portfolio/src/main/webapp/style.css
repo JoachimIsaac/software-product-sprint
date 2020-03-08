@@ -601,6 +601,8 @@ font-family: monospace;
     height: 100%;
     margin-top: 50px;
     text-align: center;
+    font-family: monospace;
+    font-size: 1.2rem;
     border: 3px solid #52b8ff;
     background: rgb(190, 190, 196);
 }
@@ -636,8 +638,14 @@ font-family: monospace;
 
 
 #chart-area #chart-container{
-    margin: auto;
-    width: 80%;
-    height: 80%;
+   margin: auto;
+    width: 38%;
+    height: 60%;
 }
-/*Interests area end*/
+
+
+#chart-area #chart-container #comments{
+    font-family: monospace;
+    font-size: 1.2rem;
+}
+/*Interests area ends here*/

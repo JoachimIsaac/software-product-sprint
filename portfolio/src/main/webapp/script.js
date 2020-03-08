@@ -14,7 +14,7 @@
 
 
 
-//doget may be the issue
+// doget may be the issue
 async function loadAllComments() {
   clearCommentContainer();
   showCommentsLoadingMessage();
@@ -22,7 +22,6 @@ async function loadAllComments() {
   const comments = await response.json();
   hideCommentsLoadingMessage();
   addCommentsToContainer(comments);
- 
 }
 
 function clearCommentContainer() {
@@ -62,7 +61,8 @@ function createCommentElement(comment) {
 function addComment() {
   fetch('/comment', {
     method: 'post',
-    body: new URLSearchParams(new FormData(document.getElementById('comment-form')))
+    body: new URLSearchParams(
+        new FormData(document.getElementById('comment-form')))
   }).then(loadAllComments);
 }
 
@@ -73,11 +73,4 @@ document.addEventListener('DOMContentLoaded', () => {
   // Add an event listener to the comment form submission button.
   document.getElementById('comment-form-submit')
       .addEventListener('click', addComment);
-
-
-}); 
-
-
-
-
-
+});
