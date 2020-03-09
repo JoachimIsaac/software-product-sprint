@@ -509,3 +509,143 @@ max-width: 1150px;
      border: 4px solid rgba(233, 17, 17, 0.685);
 }
 /* end of blog section*/
+
+
+/* Info button start and container*/
+
+#comment_section{
+    height: 700px;
+    margin-top: auto;
+    text-align: center;
+}
+
+#comment_section form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+
+    
+}
+
+#comment_section form h2{
+font-size: 2rem;
+font-family: monospace;
+}
+
+
+#comment_section form #comment-form-submit{
+    padding: 10px;
+    color: black;
+    border-radius: 20px;
+    border: black;
+    background: grey;
+    padding-left: 40px;
+    margin-top: 20px;
+    padding-right: 40px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    transition: all .3s ease-in-out;
+}
+
+
+#comment_section form textarea{
+    border: 3px solid #52b8ff;
+    font-family: monospace;
+    font-size: 1.3rem;
+    width: 45%;
+    height: 40%;
+}
+
+#comment_section form #name-box{
+    
+   
+    border: 3px solid #52b8ff;
+    width: 45%;
+    height: 8%;
+    font-size: 1.3rem;
+
+}
+
+
+comment_section form label h3{
+font-family: monospace;
+
+}
+
+
+
+
+
+#comment_section form #text-box{
+    
+    margin-top: 40px;
+    margin-bottom: 40px;
+    padding: 10px;
+    color: black;
+    border-radius: 25px;
+    border: black;
+    background: grey;
+    padding-left: 35px;
+    padding-right: 33px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    transition: all .3s ease-in-out;
+
+}
+
+#info_container{
+    width: 100%;
+    height: 100%;
+    margin-top: 50px;
+    text-align: center;
+    font-family: monospace;
+    font-size: 1.2rem;
+    border: 3px solid #52b8ff;
+    background: rgb(190, 190, 196);
+}
+
+#info_container h1{
+    font-family: monospace;
+}
+#info_container li{
+    list-style: none;
+    font-size: 2rem;
+    font-family: monospace;
+    width: 100%;
+    margin: auto;
+    display: inline;
+    border: 3px solid black;
+}
+
+/* Info button end and container*/
+
+/* Interests area start */
+
+#chart-area{
+    margin-top: 100px;
+    text-align: center;
+
+}
+#chart-area h1{
+    font-size: 3rem;
+    display: block;
+    margin: auto;
+}
+
+
+
+#chart-area #chart-container{
+   margin: auto;
+    width: 38%;
+    height: 60%;
+}
+
+
+#chart-area #chart-container #comments{
+    font-family: monospace;
+    font-size: 1.2rem;
+}
+/*Interests area ends here*/
