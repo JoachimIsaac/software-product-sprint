@@ -49,13 +49,25 @@ public final class FindMeetingQuery {
         }
         
         int tempConflict = 0;
+        int previous_endTime = 0; 
         boolean conflict = false;
   
         ArrayList<String> currentAttendees = new ArrayList<String>();
+        ArrayList<TimeRange> availableGaps = new ArrayList<TimeRange>();
+        availableGaps = getGaps(eventsCopy);
+        
+
+
+
 
         for(Event eV : eventsCopy){
+
+
             for(String attendee: eV.getAttendees()){
                 if(request.getAttendees().contains(attendee)){
+
+
+                        
 
                         if(currentAttendees.contains(attendee)){
                             conflict = true;
@@ -63,28 +75,48 @@ public final class FindMeetingQuery {
                             
                         }
 
+                            
+                        
+
+                        if(previous_endTime < eV.getWhen().start()){
+                            
+                                TimeRange tempTr = new TimeRange(0, 24 * 60);
+                                tempTr = tempTr.fromStartEnd(previous_endTime,eV.getWhen().start() - 1,true);
+                                availableTimes.add(tempTr);
+                        }
+
+
+
+                        if(previous_endTime <  eV.getWhen().end()){
+                            previous_endTime = eV.getWhen().end();
+                        }
+                        
+                        
+
+                        if(overlaps(availableTimes,getTimeBefore(eV))){
+                       
                         availableTimes.add(getTimeBefore(eV));
+                        }
+
+
+
+
                         tempConflict = eV.getWhen().end();
+                        
                         currentAttendees.add(attendee);
+
                 }
                 
             }
         }
 
       
-
-        availableTimes.add(getTimeAfter(tempConflict));
-
+        
+        availableTimes.add(getTimeAfter(previous_endTime));
+    
  
-    
-  
-       
-    
-    
-    
-    
     return availableTimes;
-    
+    // return results;
     }
 
 
@@ -112,31 +144,42 @@ public final class FindMeetingQuery {
        return tempT;
    }
 
+   
 
-    // public static ArrayList<TimeRange> checkIfTimeRangesClash(ArrayList<TimeRange> resquestRanges,Collection<Event> events){
-    //     .
-    //     ArrayList<TimeRange> results = new ArrayList<TimeRange>();
-        
-    //     for(TimeRange rr : resquestRanges){
-            
-    //         int counter = 0; 
 
-       
-    //         for(Event event : events){
-    //             if(event.getWhen().contains(rr)){
-    //                 counter += 1;
-    //                 continue;
-    //             }
-    //         }
-    //     if(counter  == 0 && pt.duration() < pt.END_OF_DAY){
-    //         results.add(rr);
-    //         }
-    //     }
-        
-    //     return results;
 
-    // }
+    public boolean overlaps(ArrayList<TimeRange> possibleTimes, TimeRange ev){
+        for(TimeRange t : possibleTimes){
+            if(ev.start() == t.start()){
+                return false;
+            }
 
+        }
+        return true;
+    }
+
+
+
+public ArrayList<TimeRange> getGaps(ArrayList<Event> eventCopy){
+    // find possibles gaps
+    ArrayList<TimeRange> result = new ArrayList<TimeRange>();
+
+    for(int i = 1; i < eventCopy.size(); i++){
+    
+      TimeRange tempT = new TimeRange(0, 24 * 60);
+        tempT = tempT.fromStartEnd(eventCopy.get(i - 1).getWhen().end(),eventCopy.get(i).getWhen().start() - 1,true);
+    
+    
+  
+    result.add(tempT);
+    }
+
+    return result;
+  
+
+}
+
+    
 
   }   
     
