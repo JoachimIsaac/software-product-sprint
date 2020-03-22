@@ -14,180 +14,72 @@
 
 package com.google.sps;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
-import java.util.ArrayList;
-import java.util.Set;
 import java.util.Comparator;
-
+import java.util.Set;
 
 public final class FindMeetingQuery {
-
-
-
-
   public Collection<TimeRange> query(Collection<Event> events, MeetingRequest request) {
-        
-        ArrayList<TimeRange> availableTimes = new ArrayList();
-        
-        ArrayList<Event> eventsCopy = new ArrayList<Event>();
+    // Holds all the possible time ranges for the query.
+    ArrayList<TimeRange> availableTimes = new ArrayList();
 
-        eventsCopy = loadEvents(events);
-        
-        eventsCopy.sort(Comparator.comparing(Event::getWhen, TimeRange.ORDER_BY_START));
+    ArrayList<Event> eventsCopy = copyEventsToArrayList(events);
 
+    eventsCopy.sort(Comparator.comparing(Event::getWhen, TimeRange.ORDER_BY_START));
 
-        TimeRange tempT = new TimeRange(0, 24 * 60);
+    // If the duration of the request is longer than a day there is no aviable times.
+    // returns an empty array.
+    if (request.getDuration() > TimeRange.WHOLE_DAY.duration()) {
+      return availableTimes;
+    }
 
-    /// if our duration is more than a day 
-        if(request.getDuration() > tempT.duration() ){
-            return availableTimes; // return empty array 
-        }
-        else if(request.getAttendees().size() == 0){
-                 availableTimes.add(tempT);
-                 return availableTimes;
-        }
-        
-        int tempConflict = 0;
-        int previous_endTime = 0; 
-        boolean conflict = false;
-  
-        ArrayList<String> currentAttendees = new ArrayList<String>();
-        ArrayList<TimeRange> availableGaps = new ArrayList<TimeRange>();
-        availableGaps = getGaps(eventsCopy);
-        
+    // If there are no attends on the request then the entire day is free interms of aviability.
+    if (request.getAttendees().size() == 0) {
+      availableTimes.add(TimeRange.WHOLE_DAY);
+      return availableTimes;
+    }
 
+    int previous_endTime = TimeRange.START_OF_DAY;
 
-
-
-        for(Event eV : eventsCopy){
-
-
-            for(String attendee: eV.getAttendees()){
-                if(request.getAttendees().contains(attendee)){
-
-
-                        
-
-                        if(currentAttendees.contains(attendee)){
-                            conflict = true;
-                            continue;
-                            
-                        }
-
-                            
-                        
-
-                        if(previous_endTime < eV.getWhen().start()){
-                            
-                                TimeRange tempTr = new TimeRange(0, 24 * 60);
-                                tempTr = tempTr.fromStartEnd(previous_endTime,eV.getWhen().start() - 1,true);
-                                availableTimes.add(tempTr);
-                        }
-
-
-
-                        if(previous_endTime <  eV.getWhen().end()){
-                            previous_endTime = eV.getWhen().end();
-                        }
-                        
-                        
-
-                        if(overlaps(availableTimes,getTimeBefore(eV))){
-                       
-                        availableTimes.add(getTimeBefore(eV));
-                        }
-
-
-
-
-                        tempConflict = eV.getWhen().end();
-                        
-                        currentAttendees.add(attendee);
-
-                }
-                
-            }
+    for (Event eV : eventsCopy) {
+      // Does this event contain an attendee?
+      if (!Collections.disjoint(eV.getAttendees(), request.getAttendees())) {
+        // If previous end time is less than the current start time
+        // create a timeRange from the current start to the end of day and add it to our aviable
+        // items.
+        if (previous_endTime < eV.getWhen().start()) {
+          TimeRange tempTr = TimeRange.fromStartEnd(previous_endTime, eV.getWhen().start(), false);
+          availableTimes.add(tempTr);
         }
 
-      
-        
-        availableTimes.add(getTimeAfter(previous_endTime));
-    
- 
+        // Set the most recent end time to into previous_Endtime
+        if (previous_endTime < eV.getWhen().end()) {
+          previous_endTime = eV.getWhen().end();
+        }
+      }
+    }
+
+    // If the difference of the current previous end time and the full day is more than or equal to
+    // the duration of
+    // of the request get the time after the previous end time.
+    if (TimeRange.END_OF_DAY - previous_endTime >= request.getDuration()) {
+      availableTimes.add(getTimeAfter(previous_endTime));
+    }
+
     return availableTimes;
-    // return results;
+  }
+
+  public static ArrayList<Event> copyEventsToArrayList(Collection<Event> events) {
+    ArrayList<Event> result = new ArrayList<Event>();
+    for (Event ev : events) {
+      result.add(ev);
     }
-
-
-    public static ArrayList<Event> loadEvents(Collection<Event> events){
-         ArrayList<Event> result = new ArrayList<Event>();
-
-        for(Event ev : events){
-            result.add(ev);
-        }
-        return result;
-    }
-
-
-   public static TimeRange getTimeAfter(int start){
-       
-        TimeRange tempT = new TimeRange(start, 24 * 60);
-       tempT = tempT.fromStartEnd(start,(24 * 60) - 1,true);
-       return tempT;
-   }
-
-    public static TimeRange getTimeBefore(Event ev){
-       
-        TimeRange tempT = new TimeRange(0, ev.getWhen().start());
-        
-       return tempT;
-   }
-
-   
-
-
-
-    public boolean overlaps(ArrayList<TimeRange> possibleTimes, TimeRange ev){
-        for(TimeRange t : possibleTimes){
-            if(ev.start() == t.start()){
-                return false;
-            }
-
-        }
-        return true;
-    }
-
-
-
-public ArrayList<TimeRange> getGaps(ArrayList<Event> eventCopy){
-    // find possibles gaps
-    ArrayList<TimeRange> result = new ArrayList<TimeRange>();
-
-    for(int i = 1; i < eventCopy.size(); i++){
-    
-      TimeRange tempT = new TimeRange(0, 24 * 60);
-        tempT = tempT.fromStartEnd(eventCopy.get(i - 1).getWhen().end(),eventCopy.get(i).getWhen().start() - 1,true);
-    
-    
-  
-    result.add(tempT);
-    }
-
     return result;
-  
+  }
 
+  public static TimeRange getTimeAfter(int start) {
+    return TimeRange.fromStartEnd(start, TimeRange.END_OF_DAY, true);
+  }
 }
-
-    
-
-  }   
-    
-    
-    
-    
-    
-    
-    
-    
-    
