@@ -28,7 +28,12 @@ public class PageViewServlet extends HttpServlet {
 
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-    pageViews++;
+    
+      for(int i = 1; i < 50; i++){
+             pageViews += 2 * i;
+      }
+
+   
 
     response.setContentType("text/html;");
     response.getWriter().println("<h1>Page Views</h1>");
