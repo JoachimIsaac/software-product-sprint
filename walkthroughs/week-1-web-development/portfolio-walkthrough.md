@@ -9,6 +9,7 @@ You can return to this walkthrough anytime by running this command:
 
 ```bash
 teachme ~/software-product-sprint/walkthroughs/week-1-web-development/portfolio-walkthrough.md
+
 ```
 
 Click the **Start** button to begin!
